@@ -1,0 +1,111 @@
+/* Style de base pour la page */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Le conteneur du livre */
+.book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Le "livre" proprement dit */
+.book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 500px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-direction: row;
+}
+
+/* Les boutons de navigation */
+.nav-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #2980b9;
+}
+
+/* Positionnement des boutons */
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* La page du cocktail */
+.cocktail-page {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cocktail-page h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.cocktail-page p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.cocktail-page ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cocktail-page li {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+#back-btn-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#back-btn {
+    background-color: #af4c4c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#back-btn:hover {
+    background-color: #883b3b;
+}

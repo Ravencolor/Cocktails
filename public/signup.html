@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white">
+
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-gray-900 p-8 rounded-lg w-full max-w-md">
+            <h1 class="text-2xl font-bold mb-4">Créer un compte</h1>
+            <p class="mb-4 text-gray-400">Entrez vos informations pour créer un compte</p>
+            <form id="signupForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-400">Username</label>
+                <input type="text" id="username" name="username" class="w-full p-2 bg-gray-800 rounded-lg" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-400">Mot de passe</label>
+                    <input type="password" id="password" name="password" class="w-full p-2 bg-gray-800 rounded-lg" required>
+                </div>
+                <button type="submit" class="w-full py-2 bg-white text-black rounded-lg">S'inscrire</button>
+            </form>
+            <p class="mt-4 text-gray-400">Vous avez déjà un compte? <a href="/login" class="text-blue-400">Se connecter</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    if (data.success) {
+                        document.cookie = `authToken=${data.token}; path=/;`;
+                        window.location.href = '/login';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocktail Maker Simulator | Jeu</title>
+    <!-- Inclusion des fichiers CSS et bibliothèques nécessaires -->
+    <link rel="stylesheet" href="css/jeu.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="min-h-screen bg-black text-white">
+    <!-- Barre de navigation -->
+    <nav class="flex justify-between items-center p-4 border-b border-gray-700">
+        <div class="flex items-center space-x-4">
+            <!-- Boutons de navigation pour accéder aux différentes pages -->
+            <button class="px-4 py-2 bg-gray-800 rounded-lg" onclick="window.location.href='/'">🏠 Accueil</button>
+            <button class="px-4 py-2 bg-gray-800 rounded-lg" onclick="window.location.href='/livre-des-recettes'">📖 Recettes</button>
+            <button class="px-4 py-2 bg-gray-800 rounded-lg" onclick="window.location.href='/jeu'">🎮 Jeu</button>
+        </div>
+        <div class="space-x-2">
+            <!-- Bouton pour se déconnecter -->
+            <button class="px-4 py-2 bg-white text-black rounded-lg" onclick="document.cookie = 'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; window.location.href = '/login';">Déconnexion</button>
+        </div>
+    </nav>
+
+    <!-- Conteneur principal -->
+    <div class="container mx-auto p-4">
+
+        <!-- Grille principale divisée en deux colonnes -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Colonne des ingrédients -->
+            <div class="lg:col-span-3 space-y-3">
+                <h2 class="text-xl font-semibold mb-4 text-gray-300">Ingrédients</h2>
+                <div id="ingredients" class="space-y-2 max-h-[70vh] overflow-y-auto pr-2 scrollbar-thin">
+                    <!-- Les ingrédients seront générés dynamiquement ici -->
+                </div>
+            </div>
+
+            <!-- Colonne principale pour la création de cocktails -->
+            <div class="lg:col-span-9">
+                <!-- Titre principal -->
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+                        Allons créer des cocktails !
+                    </h2>
+                </div>
+
+                <!-- Grille pour le verre et la liste des ingrédients -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Section pour déposer les ingrédients -->
+                    <div class="flex flex-col">
+                        <div id="verre" class="flex-1 min-h-[300px] bg-gray-900 border border-gray-800 rounded-lg p-4 flex flex-col items-center justify-center relative">
+                            <p class="text-gray-400 mb-4">Dépose tes ingrédients ici:</p>
+                        </div>
+                    </div>
+
+                    <!-- Section pour afficher les ingrédients sélectionnés -->
+                    <div id="contenue" class="flex flex-col">
+                        <div class="flex-1 min-h-[300px] bg-gray-900 border border-gray-800 rounded-lg p-4 flex flex-col items-center justify-center">
+                            <p class="text-gray-500">Sélectionnez des ingrédients pour créer votre cocktail</p>
+                            <div id="ingredients-liste" class="bottom-4 left-4 right-4 flex flex-wrap gap-2 border border-gray-800"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boutons pour valider ou revenir -->
+                <div id="validate-btn-container" class="flex justify-center mt-8 space-x-4">
+                    <button id="validate-btn" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary hover:bg-primary/90 h-10 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
+                        Valider le cocktail
+                    </button>
+                    <button id="back-btn" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border bg-background hover:text-accent-foreground h-10 px-4 py-2 border-gray-700 text-gray-400 hover:bg-gray-800">
+                        Retour
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclusion du fichier JavaScript pour la logique -->
+    <script src="js/jeu.js"></script>
+</body>
+
+</html>

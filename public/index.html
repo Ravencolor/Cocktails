@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recettes & Jeux</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white">
+    <nav class="flex justify-between items-center p-4 border-b border-gray-700">
+        <div class="flex items-center space-x-4">
+            <button class="px-4 py-2 bg-gray-800 rounded-lg" onclick="window.location.href='/'">🏠 Accueil</button>
+            <button class="px-4 py-2 bg-gray-800 rounded-lg" onclick="window.location.href='/livre-des-recettes'">📖 Recettes</button>
+            <button class="px-4 py-2 bg-gray-800 rounded-lg" onclick="window.location.href='/jeu'">🎮 Jeu</button>
+        </div>
+        <div class="space-x-2">
+            <button class="px-4 py-2 bg-white text-black rounded-lg" onclick="document.cookie = 'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; window.location.href = '/login';">Déconnexion</button>
+        </div>
+    </nav>
+    
+    <header class="text-center py-16 flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-1/2">
+            <h1 class="text-5xl font-bold">Bienvenue sur notre plateforme de recettes et jeux</h1>
+            <p class="mt-4 text-gray-400">Découvrez de délicieuses recettes et amusez-vous avec nos jeux interactifs.</p>
+            <div class="mt-6 flex justify-center space-x-4">
+                <button class="px-6 py-3 bg-gray-800 rounded-lg" onclick="window.location.href='/jeu'">🎮 Lancer la partie</button>
+                <button class="px-6 py-3 border border-gray-500 rounded-lg" onclick="window.location.href='/livre-des-recettes'">📖 Livre de recettes</button>
+            </div>
+        </div>
+        <div class="mt-8 md:mt-0 md:w-1/2 flex justify-center">
+            <img src="./image/image.jpeg" alt="Image de recettes et jeux" class="rounded-lg">
+        </div>
+    </header>
+    
+    <section class="max-w-4xl mx-auto py-8">
+        <h2 class="text-3xl font-bold text-center">Nos fonctionnalités</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="p-6 bg-gray-900 rounded-lg">
+                <h3 class="text-xl font-bold">📖 Recettes</h3>
+                <p class="text-gray-400 mt-2">Explorez notre collection de recettes délicieuses et faciles à préparer.</p>
+                <a href="/livre-des-recettes" class="text-blue-400 mt-4 inline-block">Voir toutes les recettes</a>
+            </div>
+            <div class="p-6 bg-gray-900 rounded-lg">
+                <h3 class="text-xl font-bold">🎮 Jeu</h3>
+                <p class="text-gray-400 mt-2">Amusez-vous avec notre jeu interactif et battez vos records.</p>
+                <a href="/jeu" class="text-blue-400 mt-4 inline-block">Jouer maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        if (!document.cookie.split('; ').find(row => row.startsWith('authToken='))) {
+            window.location.href = '/login';
+        }
+    </script>
+</body>
+</html>

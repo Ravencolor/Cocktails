@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocktail Maker Simulator | Le Livre des Cocktails</title>
+    <!-- Inclusion de TailwindCSS pour le style -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-black text-white">
+    <!-- Barre de navigation -->
+    <nav class="flex justify-between items-center p-4 border-b border-gray-700">
+        <div class="flex items-center space-x-4">
+            <!-- Boutons de navigation pour accéder aux différentes pages -->
+            <button class="px-4 py-2 bg-gray-800 rounded-lg" onclick="window.location.href='/'">🏠 Accueil</button>
+            <button class="px-4 py-2 bg-gray-800 rounded-lg" onclick="window.location.href='/livre-des-recettes'">📖 Recettes</button>
+            <button class="px-4 py-2 bg-gray-800 rounded-lg" onclick="window.location.href='/jeu'">🎮 Jeu</button>
+        </div>
+        <div class="space-x-2">
+            <!-- Bouton pour se déconnecter -->
+            <button class="px-4 py-2 bg-white text-black rounded-lg" onclick="document.cookie = 'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; window.location.href = '/login';">Déconnexion</button>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4">
+        <!-- Titre principal de la page -->
+        <h1 class="text-3xl font-bold mb-4">Livre de recettes</h1>
+        <p class="mb-8">Découvrez notre collection de recettes délicieuses et faciles à préparer.</p>
+
+        <!-- Section des filtres -->
+        <div class="mb-6 flex flex-col md:flex-row gap-4">
+            <!-- Champ de recherche par nom -->
+            <input id="filter-name" type="text" placeholder="Rechercher par nom..." class="p-2 bg-gray-800 rounded-lg text-white">
+            <!-- Sélecteur pour filtrer par catégorie -->
+            <select id="filter-category" class="p-2 bg-gray-800 rounded-lg text-white">
+                <option value="">Toutes les catégories</option>
+                <option value="most-ingredients">Plus d'ingrédients</option>
+                <option value="least-ingredients">Moins d'ingrédients</option>
+                <option value="alphabetical">Ordre alphabétique</option>
+                <option value="reverse-alphabetical">Ordre alphabétique inverse</option>
+            </select>
+            <!-- Liste des cases à cocher pour filtrer par ingrédients -->
+            <div id="filter-ingredients" class="p-2 bg-gray-800 rounded-lg text-white flex flex-wrap gap-2">
+                <!-- Les cases à cocher seront générées dynamiquement -->
+            </div>
+        </div>
+
+        <!-- Conteneur pour afficher les cartes des cocktails -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cocktails-container">
+            <!-- Les cartes des cocktails seront insérées dynamiquement ici -->
+        </div>
+    </main>
+
+    <!-- Inclusion du fichier JavaScript pour la logique -->
+    <script src="js/recettes.js"></script>
+</body>
+
+</html>

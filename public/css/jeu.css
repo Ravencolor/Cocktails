@@ -1,0 +1,19 @@
+.ingredient {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity, 1));
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#ingredients {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+#ingredients::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
